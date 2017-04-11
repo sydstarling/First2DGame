@@ -23,6 +23,7 @@ public class Display {
     
     private void createDisplay() {
         
+        try{
         frame = new JFrame(title);
         frame.setSize(width, height);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -38,6 +39,11 @@ public class Display {
         
         frame.add(canvas);
         frame.pack();
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     

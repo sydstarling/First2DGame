@@ -18,6 +18,7 @@ public class World {
     
     public World(Handler handler, String path, int tiles1, int tiles2) {
         
+        try{
         this.tiles1 = tiles1;
         this.tiles2 = tiles2;
         this.handler = handler;
@@ -32,6 +33,11 @@ public class World {
             loadWorld(path);
             
         }
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
@@ -43,6 +49,7 @@ public class World {
     
     public void render(Graphics g) {
         
+        try{
         for (int y = 0; y < height; y++) {
             
             for (int x = 0; x < width; x++) {
@@ -52,11 +59,17 @@ public class World {
             }
             
         }
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
     public Tile getTile(int x, int y) {
         
+        try{
         if(x < 0 || y < 0 || x >= width || y >= height)
             return null;
         
@@ -66,14 +79,21 @@ public class World {
             
             throw new TileNotFoundException("Tile not found.");
             
+        }else
+            return t;
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
         }
         
-        return t;
+        return null;
         
     }
     
     private void loadWorld(String path) {
         
+        try{
         String file = Utils.loadFileAsString(path);
         String[] tokens = file.split("\\s+");
         width = Utils.parseInt(tokens[0]);
@@ -102,11 +122,17 @@ public class World {
             }
             
         }
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
     private void generateWorld() {
         
+        try{
         System.out.println("Generating world...");
         
         Random rn = new Random();
@@ -127,6 +153,11 @@ public class World {
         }
         
         System.out.println("World generated successfully!");
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     

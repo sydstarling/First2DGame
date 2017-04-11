@@ -1,7 +1,6 @@
 package net.finksu.First2DGame.states;
 
 import java.awt.Graphics;
-import net.finksu.First2DGame.Game;
 import net.finksu.First2DGame.Handler;
 
 public abstract class State {

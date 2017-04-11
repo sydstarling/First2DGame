@@ -19,25 +19,39 @@ public class GameState extends State {
     public GameState(Handler handler, String path, int tiles1, int tiles2) {
         
         super(handler);
+        
+        try{
         this.tiles1 = tiles1;
         this.tiles2 = tiles2;
         world = new World(handler, path, this.tiles1, this.tiles2);
         handler.setWorld(world);
         player = new Player(handler, 50, 50);
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
     @Override
     public void tick() {
         
+        try{
         world.tick();
         player.tick();
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
 
     @Override
     public void render(Graphics g) {
         
+        try{
         world.render(g);
         player.render(g);
         //Show FPS
@@ -46,6 +60,11 @@ public class GameState extends State {
         if(Player.NoClip)
             g.drawString("NoClip", 10, 30);
         g.setColor(Color.WHITE);
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     

@@ -10,6 +10,7 @@ public class Assets {
     
     public static void init() {
         
+        try{
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/tiles.png"));
         
         grass = sheet.crop(0, 0, width, height);
@@ -17,6 +18,11 @@ public class Assets {
         dirt = sheet.crop(width * 2 + 2, 0, width, height);
         air = sheet.crop(width * 3 + 3, 0, width, height);
         player = ImageLoader.loadImage("/textures/Player.png");
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     

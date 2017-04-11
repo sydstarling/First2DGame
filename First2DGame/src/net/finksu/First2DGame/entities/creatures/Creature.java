@@ -35,6 +35,7 @@ public abstract class Creature extends Entity {
     
     public void moveX() {
         
+        try{
         if(!Player.NoClip) {
         if(xMove > 0) { //Right
             
@@ -55,11 +56,17 @@ public abstract class Creature extends Entity {
         }
     }else
             x += xMove;
-        
+     
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
     }
     
     public void moveY() {
         
+        try{
         if(!Player.NoClip) {
         if(yMove < 0) {//Up
             
@@ -80,6 +87,12 @@ public abstract class Creature extends Entity {
         }
         }else
             y += yMove;
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
         
     }
     

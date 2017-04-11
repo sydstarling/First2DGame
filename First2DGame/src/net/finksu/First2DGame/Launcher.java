@@ -12,8 +12,9 @@ public class Launcher {
     
     public static void main(String[] args) {
         
-        
+        try{
         Scanner sc = new Scanner(System.in);
+        
         worldpath = sc.nextLine();
         if(worldpath.equalsIgnoreCase("default"))
             worldpath = "worlds/world1.level";
@@ -40,6 +41,11 @@ public class Launcher {
         height = sc.nextInt();
         Game game = new Game("First2DGame", width, height, worldpath, tiles1, tiles2);
         game.start();
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     

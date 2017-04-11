@@ -25,6 +25,7 @@ public class Player extends Creature {
     
     public boolean isPlayerTouching() {
         
+        try{
         if(isPlayerTouching(1))
             return true;
         if(isPlayerTouching(2))
@@ -32,11 +33,18 @@ public class Player extends Creature {
         if(isPlayerTouching(3))
             return true;
         return isPlayerTouching(4);
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        return false;
         
     }
     
     public boolean isPlayerTouching(int i) {
         
+        try{
         if(i == 2) {
             
             int tx = (int) (x + 1 + bounds.x + bounds.width) / Tile.TILEWIDTH;
@@ -68,6 +76,11 @@ public class Player extends Creature {
                 return false;
             
         }
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
         return true;
         
@@ -84,6 +97,7 @@ public class Player extends Creature {
     
     private void getInput() {
         
+        try{
         xMove = 0;
         yMove = 0;
         
@@ -104,12 +118,16 @@ public class Player extends Creature {
         if(handler.getKeyManager().right)
             xMove = speed;
         NoClip = handler.getKeyManager().O;
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
 
     @Override
     public void render(Graphics g) {
-        
         
         g.drawImage(Assets.player, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
         

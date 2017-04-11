@@ -41,6 +41,7 @@ public class Game implements Runnable {
     
     public Game(String title, int width, int height, String path, int tiles1, int tiles2) {
         
+        try{
         if(tiles1 == 0 || tiles2 == 0)
             path = "worlds/world1.level";
         
@@ -51,11 +52,17 @@ public class Game implements Runnable {
         this.tiles1 = tiles1;
         this.tiles2 = tiles2;
         keyManager = new KeyManager();
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
     private void init() {
         
+        try{
         display = new Display(title, width, height);
         Assets.init();
         handler = new Handler(this);
@@ -63,12 +70,18 @@ public class Game implements Runnable {
         gameState = new GameState(handler, path, this.tiles1, this.tiles2);
         State.setState(gameState);
         display.getFrame().addKeyListener(keyManager);
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
     @Override
     public void run() {
         
+        try{
         init();
         
         double timePerTick = 1000000000 / fps;
@@ -105,21 +118,33 @@ public class Game implements Runnable {
         }
         
         stop();
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
     private void tick() {
         
+        try{
         keyManager.tick();
         if(State.getState() != null)
             State.getState().tick();
         width = display.getFrame().getWidth();
         height = display.getFrame().getHeight() - 22;
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
     private void render() {
         
+        try{
         bs = display.getCanvas().getBufferStrategy();
         
         if(bs == null) {
@@ -138,6 +163,11 @@ public class Game implements Runnable {
         
         bs.show();
         g.dispose();
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
@@ -162,17 +192,24 @@ public class Game implements Runnable {
     
     public synchronized void start() {
         
+        try{
         if(running)
             return;
         
         running = true;
         thread = new Thread(this);
         thread.start();
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
     public synchronized void stop() {
         
+        try{
         if(!running)
             return;
         
@@ -183,6 +220,11 @@ public class Game implements Runnable {
             thread.join();
             
         } catch (InterruptedException e) {
+            
+            e.printStackTrace();
+            
+        }
+        }catch(Exception e) {
             
             e.printStackTrace();
             

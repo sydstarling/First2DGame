@@ -15,6 +15,7 @@ public abstract class Entity {
     
     public Entity(Handler handler, float x, float y, int width, int height) {
         
+        try{
         this.handler = handler;
         this.x = x;
         this.y = y;
@@ -22,6 +23,11 @@ public abstract class Entity {
         this.height = height;
         
         bounds = new Rectangle(0, 0, width, height);
+        }catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     
