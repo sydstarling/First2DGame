@@ -30,9 +30,9 @@ public class GameCamera {
             yOffset = 0;
         else if(yOffset > handler.getWorld().getHeight() * Tile.TILEHEIGHT - handler.getHeight())
             yOffset = handler.getWorld().getHeight() * Tile.TILEHEIGHT - handler.getHeight();
-        }catch(Exception e) {
+        }catch(Exception ex) {
             
-            e.printStackTrace();
+            ex.printStackTrace();
             
         }
         
