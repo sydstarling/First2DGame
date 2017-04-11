@@ -21,7 +21,6 @@ public class GameState extends State {
         super(handler);
         
         try{
-            //Tämä on turha kommentti
         this.tiles1 = tiles1;
         this.tiles2 = tiles2;
         world = new World(handler, path, this.tiles1, this.tiles2);
